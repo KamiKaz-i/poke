@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script defer type="module" src="script.js"></script>
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+
+        body{
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            
+            justify-content: space-evenly;
+            row-gap: 15px;
+        }
+        section{
+            width: 31%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding:40px;
+            background-color: lightgray;
+            column-gap: 40px;
+            row-gap: 15px;
+            border-radius: 2rem;
+        }
+        .searchSection{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .searchBar{
+            width: 40%;
+        }
+        .favourites{
+           display: flex;
+           justify-content: center;
+        }
+        .pokemons{
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 40px;
+            row-gap: 15px;
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .pokemons :hover{
+            border-color: greenyellow;
+        }
+        
+        .pokemons >div>img{
+            padding:15px;
+            height:75px;
+            width:75px;
+            
+        }
+        aside{
+            display: flex;
+            width: 31%;
+            justify-content: center;
+            padding:40px;
+            background-color: lightgray;
+            column-gap: 40px;
+            row-gap: 15px;
+            border-radius: 2rem;
+            
+        }
+        
+        .pokemonCard{
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            align-items: center;
+            border:solid;
+            border-radius: 1rem;
+            min-width: 150px;
+            
+        }
+        .pokemonCard > div{
+            display: flex;
+            justify-content: center;
+            background-color:black;
+            color:white;
+            width:100%;
+            padding: 5px 0px 5px 0px;
+            border-top-left-radius: 0.8rem;
+            border-top-right-radius: 0.8rem;
+        }
+        .selectedPokemon{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+        .selectedPokemon > div{
+            display: flex;
+            justify-content: center;
+        }
+        .selectedPokemonAtributes{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .selectedPokemonHeader{
+            background-color: aliceblue;
+            width:100%;
+            display: flex;
+            justify-content: center;
+        }
+        .selctedPokemonImage{
+            padding:20px;
+            max-height: 260px;
+            width: 80%;
+        }
+        .selectedPokemonWeight{
+            background-color: red;
+        }
+        .selectedPokemonHeight{
+            background-color: blue;
+        }
+        .selectedPokemonStats{
+            background-color: bisque;
+        }
+        .selectedPokemonTypes{
+            background-color: blueviolet;
+        }
+        .fav{
+            border-radius: 100%;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+        <section>
+            <div class="favourites"><button class="favouriteButton">Favourites</button></div>
+            <div class="searchSection">Search Pokemon<input class="searchBar"/></div>
+            <div class="pokemons"></div>
+        </section>
+        <aside>
+        </aside>
+</body>
+
+</html>
