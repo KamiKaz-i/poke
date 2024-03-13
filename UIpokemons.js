@@ -50,8 +50,8 @@ export function displaySelectedPokemon(pokemon){
         else{
             favouriteIcon.setAttribute("src","images/star.svg")
         }
-        addToFavourites(pokemon)}
-        );
+        addToFavourites(pokemon)
+    });
 }   
 
 export function handlePokemonClick(event){

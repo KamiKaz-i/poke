@@ -84,6 +84,7 @@
             row-gap: 15px;
             border-radius: 0.4rem;
             box-shadow: 0px 0px 60px -37px rgba(108, 108, 108, 1);
+            height: fit-content;
             
         }
         
@@ -115,18 +116,23 @@
             flex-direction: column;
             width: 100%;
             align-items: center;
+            border:solid grey;
+            height: fit-content;
         }
         .selectedPokemon > div{
             display: flex;
             justify-content: center;
+            
         }
         .selectedPokemonAtributes{
             display: flex;
             flex-direction: column;
             width: 100%;
         }
+        .selectedPokemonAtributes > div{
+            display: flex;
+        }
         .selectedPokemonHeader{
-            background-color: aliceblue;
             width:100%;
             display: flex;
             justify-content: center;
@@ -138,21 +144,21 @@
             width: 80%;
         }
         .selectedPokemonWeight{
-            background-color: red;
+            justify-content: center;
         }
         .selectedPokemonHeight{
-            background-color: blue;
+            justify-content: center;
         }
         .selectedPokemonStats{
-            background-color: bisque;
+            flex-direction: column;
+            align-items: center;
         }
         .selectedPokemonTypes{
-            background-color: blueviolet;
+            justify-content: space-around;
+            
         }
-        .fav{
-            border-radius: 100%;
-            background-color: gold;
-        }
+       
+        
         .selectedPokemonFavouriteIcon{
             width:30px;
             height: 30px;
@@ -163,11 +169,23 @@
             appearance: none;
             background-color: inherit;
         }
+        .favouriteButton{
+            border: none;
+            cursor: pointer;
+            border: solid 2px grey;
+            background-color: lightgray;
+            font-size: large;
+            padding: 8px;
+            border-radius: 1rem;
+        }
+        
     </style>
 </head>
 <body>
+        <div class="card"></div>
         <section>
-            <div class="favourites"><button class="favouriteButton">Favourites</button></div>
+            
+            <div class="favourites"></img><button class="favouriteButton">favourites</button></div>
             <div class="searchSection">Search Pokemon<input class="searchBar"/></div>
             <div class="pokemons"></div>
         </section>

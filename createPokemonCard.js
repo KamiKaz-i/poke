@@ -59,8 +59,8 @@ export function createSeletedCard(pokemon){
 
         statFramgent.appendChild(pokemonStat);
     }
-    selectedPokemonHeight.textContent="Height  "+pokemon.pokemonHeight;
-    selectedPokemonWeight.textContent="Weight  "+pokemon.pokemonWeight;
+    selectedPokemonHeight.textContent="Height:  "+pokemon.pokemonHeight;
+    selectedPokemonWeight.textContent="Weight:  "+pokemon.pokemonWeight;
     selectedPokemonTypes.replaceChildren(typeFragment);
     selectedPokemonStats.replaceChildren(statFramgent);
     selctedPokemonImage.setAttribute("src",pokemon.pokemonImageSvgUrl);
