@@ -22,7 +22,7 @@ export async function getPokemonsData(){
                 pokemonWeight:pokemonData.data.weight,
                 pokemonHeight:pokemonData.data.height,
                 pokemonStats:pokemonStat,
-                pokemonImageSvgUrl:pokemonData.data.sprites.other.dream_world.front_default
+                pokemonImageSvgUrl:pokemonData.data.sprites.other.dream_world.front_default,
             }
         })
     )

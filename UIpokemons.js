@@ -6,6 +6,7 @@ export const pokemons=await getPokemonsData();
 const section=document.querySelector('.pokemons');
 const aside=document.querySelector('aside')
 
+
 export let favouritesShowed=false;
 
 export function displayPokemonCards(listOfPokemons){
@@ -31,17 +32,26 @@ function pokemonNameStartsWith(listOfPokemons,event){
     })
 }
 
-    
 export function displaySelectedPokemon(pokemon){
+
     
     while(aside.firstChild){
         aside.removeChild(aside.firstChild);
     }
     const selectedCard=createSeletedCard(pokemon);
     aside.appendChild(selectedCard);
-    const favouriteButton=document.querySelector('.fav');
-    favouriteButton.addEventListener("click",()=>addToFavourites(pokemon));
+    const favouriteButton=document.querySelector('.selectedPokemonFavouriteButton');
+    const favouriteIcon=document.querySelector('.selectedPokemonFavouriteIcon');
     
+    favouriteButton.addEventListener("click",()=>{
+        if(favouritesPokemons.some((poke)=>poke.pokemonName==pokemon.pokemonName)){
+            favouriteIcon.setAttribute("src","images/estar.svg")
+        }
+        else{
+            favouriteIcon.setAttribute("src","images/star.svg")
+        }
+        addToFavourites(pokemon)}
+        );
 }   
 
 export function handlePokemonClick(event){
@@ -83,6 +93,9 @@ export function handleSearch(event){
 export function handleShowFavourites(){
     const searchBar=document.querySelector('.searchBar')
     searchBar.value='';
+    while(aside.firstChild){
+        aside.removeChild(aside.firstChild);
+    }
     if(favouritesShowed==false){
         displayPokemonCards(favouritesPokemons);
         favouritesShowed=true;

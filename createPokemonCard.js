@@ -1,3 +1,4 @@
+import { favouritesPokemons } from "./favouritePokemon.js";
 export function createPokemonCard(pokemon){
     const pokemonCard=document.createElement('div');
     const pokemonCardHeader=document.createElement('div');
@@ -18,6 +19,8 @@ export function createPokemonCard(pokemon){
 }
 
 export function createSeletedCard(pokemon){
+    const selectedPokemonFavouriteButton=document.createElement('button');
+    const selectedPokemonFavouriteIcon=document.createElement('img');
 
     const selectedPokemon=document.createElement('div');
     const selectedPokemonHeader=document.createElement('div');
@@ -28,8 +31,9 @@ export function createSeletedCard(pokemon){
     const selectedPokemonTypes=document.createElement('div');
     const selectedPokemonStats=document.createElement('div');
 
+    selectedPokemonFavouriteButton.classList.add('selectedPokemonFavouriteButton');
+    selectedPokemonFavouriteIcon.classList.add('selectedPokemonFavouriteIcon');
     
-
     selectedPokemon.classList.add('selectedPokemon');
     selctedPokemonImage.classList.add('selctedPokemonImage');
     selectedPokemonHeader.classList.add('selectedPokemonHeader');
@@ -61,15 +65,24 @@ export function createSeletedCard(pokemon){
     selectedPokemonStats.replaceChildren(statFramgent);
     selctedPokemonImage.setAttribute("src",pokemon.pokemonImageSvgUrl);
 
+    if(favouritesPokemons.some((poke)=>poke.pokemonName==pokemon.pokemonName)){
+        selectedPokemonFavouriteIcon.setAttribute("src",'images/star.svg');
+    }
+    else{
+        selectedPokemonFavouriteIcon.setAttribute("src",'images/estar.svg');
+    }
+    
+
 
     
     selectedPokemonAtributes.appendChild(selectedPokemonWeight)
     selectedPokemonAtributes.appendChild(selectedPokemonHeight)
     selectedPokemonAtributes.appendChild(selectedPokemonStats)
     selectedPokemonAtributes.appendChild(selectedPokemonTypes)
-    
-    selectedPokemonHeader.innerHTML=pokemon.pokemonName+`<button class=fav pokemon=${pokemon.pokemonName}>fav</button>`;
-    
+    selectedPokemonFavouriteButton.appendChild(selectedPokemonFavouriteIcon);
+      
+    selectedPokemonHeader.textContent=pokemon.pokemonName+" -->";
+    selectedPokemonHeader.appendChild(selectedPokemonFavouriteButton);  
 
     selectedPokemon.appendChild(selectedPokemonHeader);
     selectedPokemon.appendChild(selctedPokemonImage);
