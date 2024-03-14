@@ -98,7 +98,7 @@
             min-width: 150px;
             box-shadow: 8px 8px 17px -10px rgba(66, 68, 90, 1);
             cursor: pointer;
-            
+            transition-duration: 0.4s;
         }
         
         .pokemonCard > div{
@@ -117,6 +117,7 @@
             width: 100%;
             align-items: center;
             border:solid grey;
+            background-color: rgb(202, 202, 202);
             height: fit-content;
         }
         .selectedPokemon > div{
@@ -137,6 +138,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            font-size: x-large;
+            font-weight: 500;
         }
         .selctedPokemonImage{
             padding:20px;
@@ -160,8 +163,8 @@
        
         
         .selectedPokemonFavouriteIcon{
-            width:30px;
-            height: 30px;
+            width:35px;
+            height: 35px;
         }
         .selectedPokemonFavouriteButton{
             border: none;
@@ -177,8 +180,13 @@
             font-size: large;
             padding: 8px;
             border-radius: 1rem;
+            transition-duration: 0.3s;
         }
-        
+        .favouriteButton:hover{
+            background-color:gray ;
+            color: white;
+            border: solid 2px rgb(68, 68, 68);
+        }
     </style>
 </head>
 <body>

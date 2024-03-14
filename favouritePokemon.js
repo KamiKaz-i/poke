@@ -22,7 +22,5 @@ export function RemoveFromFavourites(pokemon){
            
             removeFavouriteFromUi(pokemon);
         }
-        
-        
     }
 }
