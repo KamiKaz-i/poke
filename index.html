@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
     <style>
-
+        
         body{
             font-family: "Poppins", sans-serif;
             display: flex;
-            
             justify-content: space-evenly;
             row-gap: 15px;
         }
@@ -24,7 +24,7 @@
             flex-direction: column;
             flex-wrap: wrap;
             padding:40px;
-            background-color: rgb(229, 228, 228);
+            background-color: rgb(232, 232, 232);
             column-gap: 40px;
             row-gap: 15px;
             border-radius: 0.4rem;
@@ -74,6 +74,7 @@
             height:75px;
             width:75px;
         }
+       
         aside{
             display: flex;
             width: 31%;
@@ -160,8 +161,6 @@
             justify-content: space-around;
             
         }
-       
-        
         .selectedPokemonFavouriteIcon{
             width:35px;
             height: 35px;
@@ -171,6 +170,14 @@
             cursor: pointer;
             appearance: none;
             background-color: inherit;
+        }
+        .previous{
+            width:30px;
+            height: 30px;
+        }
+        .next{
+            width:30px;
+            height:30px;
         }
         .favouriteButton{
             border: none;
@@ -187,15 +194,42 @@
             color: white;
             border: solid 2px rgb(68, 68, 68);
         }
+        .pagination{
+            display: flex;
+            justify-content: center;
+            column-gap: 20px;
+        }
+        @media screen and (max-width:800px){
+            body{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                row-gap: 40px;
+            }
+            section{
+                width: 60%;
+            }
+            
+            aside{
+                width: 60%;
+            }
+        }
     </style>
 </head>
 <body>
-        <div class="card"></div>
         <section>
-            
-            <div class="favourites"></img><button class="favouriteButton">favourites</button></div>
+            <div class="favourites"></img><button class="favouriteButton">Favourites</button></div>
             <div class="searchSection">Search Pokemon<input class="searchBar"/></div>
             <div class="pokemons"></div>
+            <div class="pagination">
+                <button class="previous">
+                    <img src="images/prev.svg"></img>
+                </button>
+                <button class="next">
+                    <img src="images/next.svg"></img>
+                </button>
+            </div>
         </section>
         <aside>
         </aside>

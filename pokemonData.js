@@ -1,6 +1,6 @@
 export async function getPokemonsData(){
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=200`)
-
+    // const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${pokemonsPerPage}&offset=${(currentPage-1)*pokemonsPerPage}`)
+    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=200`);
     const pokemonsData=await Promise.all(
         response.data.results.map(async(pokemon)=>{
 

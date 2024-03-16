@@ -3,38 +3,80 @@ import {createPokemonCard,createSeletedCard} from "./createPokemonCard.js";
 import {addToFavourites,favouritesPokemons} from "./favouritePokemon.js";
 
 export const pokemons=await getPokemonsData();
-const section=document.querySelector('.pokemons');
-const aside=document.querySelector('aside')
-
-
 export let favouritesShowed=false;
 
-export function displayPokemonCards(listOfPokemons){
+const next=document.querySelector('.next');
+const previous=document.querySelector('.previous');
+const allPokemons=document.querySelector('.pokemons');
+const aside=document.querySelector('aside')
 
-    while(section.firstChild){
-        section.removeChild(section.firstChild);
+let currentPage=1;
+const pokemonsPerPage=12;
+
+
+next.addEventListener("click",()=>{
+    
+    if(favouritesShowed){
+        if(currentPage<Math.ceil(favouritesPokemons.length/pokemonsPerPage)){
+            currentPage+=1;
+        }
+        displayPokemonCards(favouritesPokemons);
     }
-    listOfPokemons.forEach((pokemon)=>{
+    else{
+        if(currentPage<Math.ceil(200/pokemonsPerPage)){
+            currentPage+=1;
+        }
+        displayPokemonCards(pokemons);
+    }
+    
+})
+previous.addEventListener("click",()=>{
+    
+    if(currentPage>1){
+        currentPage-=1;
+    }
+    if(favouritesShowed){
+        
+        displayPokemonCards(favouritesPokemons);
+    }
+    else{
+        
+        displayPokemonCards(pokemons);
+    }
+    
+})
+
+
+export function displayPokemonCards(listOfPokemons){
+    
+    while(allPokemons.firstChild){
+        allPokemons.removeChild(allPokemons.firstChild);
+    }
+    
+    const start = (currentPage - 1) * pokemonsPerPage;
+    const end = start + pokemonsPerPage;
+    const pokemonsToDisplay = listOfPokemons.slice(start, end);
+    
+    pokemonsToDisplay.forEach((pokemon)=>{
         const pokemonCard=createPokemonCard(pokemon)
-        section.appendChild(pokemonCard);
+        allPokemons.appendChild(pokemonCard);
     })
 }
 function pokemonNameStartsWith(listOfPokemons,event){
 
-    while(section.firstChild){
-        section.removeChild(section.firstChild);
+    while(allPokemons.firstChild){
+        allPokemons.removeChild(allPokemons.firstChild);
     }
     listOfPokemons.forEach((pokemon)=>{
         if(pokemon.pokemonName.startsWith(event.target.value)){
             const pokemonCard=createPokemonCard(pokemon);
-            section.appendChild(pokemonCard);
+            allPokemons.appendChild(pokemonCard);
         }
     })
 }
 
-export function displaySelectedPokemon(pokemon){
+function displaySelectedPokemon(pokemon){
 
-    
     while(aside.firstChild){
         aside.removeChild(aside.firstChild);
     }
@@ -59,7 +101,12 @@ export function handlePokemonClick(event){
     const clickedPokemon=event.target.closest('.pokemonCard');
     if(clickedPokemon){
         const pokemonName=clickedPokemon.childNodes[0].textContent;
-
+        if(window.innerWidth<800){
+            window.scrollTo({
+                top: 3000,
+                behavior: "smooth",
+              })
+        }
         for(const pokemon of pokemons){
             if(pokemon.pokemonName===pokemonName){
                 displaySelectedPokemon(pokemon)
@@ -91,17 +138,21 @@ export function handleSearch(event){
 }
 
 export function handleShowFavourites(){
+    const favouriteButton=document.querySelector('.favouriteButton');
     const searchBar=document.querySelector('.searchBar')
     searchBar.value='';
+    currentPage=1;
     while(aside.firstChild){
         aside.removeChild(aside.firstChild);
     }
     if(favouritesShowed==false){
         displayPokemonCards(favouritesPokemons);
+        favouriteButton.textContent="All";
         favouritesShowed=true;
     }
     else{
         displayPokemonCards(pokemons);
+        favouriteButton.textContent="Favourites";
         favouritesShowed=false;
     }
     
@@ -109,12 +160,14 @@ export function handleShowFavourites(){
 
 export function removeFavouriteFromUi(pokemon){
 
-    section.childNodes.forEach((node)=>{
+    allPokemons.childNodes.forEach((node)=>{
         if(node.textContent===pokemon.pokemonName){
-            section.removeChild(node);
+            allPokemons.removeChild(node);
         }
     })
     while(aside.firstChild){
         aside.removeChild(aside.firstChild);
     }
 }
+
+
