@@ -1,4 +1,4 @@
-import {getPokemonsData} from "./pokemonData.js";
+import {getPokemonsData,pokemonCount} from "./pokemonData.js";
 import {createPokemonCard,createSeletedCard} from "./createPokemonCard.js";
 import {addToFavourites,favouritesPokemons} from "./favouritePokemon.js";
 
@@ -23,7 +23,7 @@ next.addEventListener("click",()=>{
         displayPokemonCards(favouritesPokemons);
     }
     else{
-        if(currentPage<Math.ceil(200/pokemonsPerPage)){
+        if(currentPage<Math.ceil(pokemonCount/pokemonsPerPage)){
             currentPage+=1;
         }
         displayPokemonCards(pokemons);
