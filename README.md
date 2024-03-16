@@ -1,2 +1,2 @@
 # run on live server
-https://losged.github.io/poke/
+https://kamikaz-i.github.io/poke/
