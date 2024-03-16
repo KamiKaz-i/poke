@@ -98,10 +98,7 @@ function displaySelectedPokemon(pokemon){
 
 export function handlePokemonClick(event){
     if(window.innerWidth<800){
-        window.scrollTo({
-            top: 3000,
-            behavior: "smooth",
-          })
+        aside.scrollIntoView({block: "start", inline: "nearest",behavior:"smooth"});
     }
     const clickedPokemon=event.target.closest('.pokemonCard');
     if(clickedPokemon){
