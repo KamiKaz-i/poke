@@ -97,16 +97,16 @@ function displaySelectedPokemon(pokemon){
 }   
 
 export function handlePokemonClick(event){
-
+    if(window.innerWidth<800){
+        window.scrollTo({
+            top: 3000,
+            behavior: "smooth",
+          })
+    }
     const clickedPokemon=event.target.closest('.pokemonCard');
     if(clickedPokemon){
         const pokemonName=clickedPokemon.childNodes[0].textContent;
-        if(window.innerWidth<800){
-            window.scrollTo({
-                top: 3000,
-                behavior: "smooth",
-              })
-        }
+        
         for(const pokemon of pokemons){
             if(pokemon.pokemonName===pokemonName){
                 displaySelectedPokemon(pokemon)
