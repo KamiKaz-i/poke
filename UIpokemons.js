@@ -56,10 +56,12 @@ previous.addEventListener("click",()=>{
 })
 
 export function displayPokemonCards(listOfPokemons){
+
+    const start = (currentPage - 1) * pokemonsPerPage;
+    const end = start + pokemonsPerPage;
+    const pokemonsToDisplay = listOfPokemons.slice(start, end);
     
-    const pokemonsToDisplay = listOfPokemons.slice((currentPage - 1) * pokemonsPerPage, currentPage*pokemonsPerPage);
     allPokemons.innerHTML="";
-    
     pokemonsToDisplay.forEach((pokemon)=>{
         const pokemonCard=createPokemonCard(pokemon)
         allPokemons.appendChild(pokemonCard);
@@ -142,7 +144,7 @@ export function handleSearch(event){
 }
 
 export function handleShowFavourites(){
-    
+
     const favouriteButton=document.querySelector('.favouriteButton');
     const searchBar=document.querySelector('.searchBar')
     searchBar.value="";
