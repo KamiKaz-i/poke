@@ -20,6 +20,7 @@ function checkIfItsLastPage(listOfPokemons){
         currentPage+=1;
         displayPokemonCards(listOfPokemons);
     }
+
 }
 
 function checkIfItsFirstPage(listOfPokemons){
@@ -31,54 +32,33 @@ function checkIfItsFirstPage(listOfPokemons){
 }
 
 next.addEventListener("click",()=>{
-    
+
     if(favouritesShowed){
-        if(isSearching){
-            checkIfItsLastPage(searchedPokemons);
-        }
-        else{
-            checkIfItsLastPage(favouritesPokemons);
-        }
+
+        isSearching?checkIfItsLastPage(searchedPokemons):checkIfItsLastPage(favouritesPokemons);
     }
     else{
-        if(isSearching){
-            checkIfItsLastPage(searchedPokemons);
-        }
-        else{
-            checkIfItsLastPage(pokemons);
-        }
+
+        isSearching?checkIfItsLastPage(searchedPokemons):checkIfItsLastPage(pokemons);
     }
 })
 
 previous.addEventListener("click",()=>{
     
     if(favouritesShowed){
-        if(isSearching){
-            checkIfItsFirstPage(searchedPokemons);
-        }
-        else{
-            checkIfItsFirstPage(favouritesPokemons);
-        }
+
+        isSearching?checkIfItsFirstPage(searchedPokemons):checkIfItsFirstPage(favouritesPokemons);
     }
     else{
-        if(isSearching){
-            checkIfItsFirstPage(searchedPokemons);
-        }
-        else{
-            checkIfItsFirstPage(pokemons);
-        }
+        
+        isSearching?checkIfItsFirstPage(searchedPokemons):checkIfItsFirstPage(pokemons);
     }
 })
 
 export function displayPokemonCards(listOfPokemons){
     
-    while(allPokemons.firstChild){
-        allPokemons.removeChild(allPokemons.firstChild);
-    }
-    
-    const start = (currentPage - 1) * pokemonsPerPage;
-    const end = start + pokemonsPerPage;
-    const pokemonsToDisplay = listOfPokemons.slice(start, end);
+    const pokemonsToDisplay = listOfPokemons.slice((currentPage - 1) * pokemonsPerPage, currentPage*pokemonsPerPage);
+    allPokemons.innerHTML="";
     
     pokemonsToDisplay.forEach((pokemon)=>{
         const pokemonCard=createPokemonCard(pokemon)
@@ -101,9 +81,7 @@ function pokemonNameStartsWith(listOfPokemons,event){
 
 function displaySelectedPokemon(pokemon){
 
-    while(aside.firstChild){
-        aside.removeChild(aside.firstChild);
-    }
+    aside.innerHTML="";
     const selectedCard=createSeletedCard(pokemon);
     aside.appendChild(selectedCard);
     const favouriteButton=document.querySelector('.selectedPokemonFavouriteButton');
@@ -121,19 +99,17 @@ function displaySelectedPokemon(pokemon){
 }   
 
 export function handlePokemonClick(event){
+
     const clickedPokemon=event.target.closest('.pokemonCard');
+    const pokemonName=clickedPokemon.childNodes[0].textContent;
 
     if(window.innerWidth<800){
         aside.scrollIntoView({block: "start", inline: "nearest",behavior:"smooth"});
     }
-
-    if(clickedPokemon){
-        const pokemonName=clickedPokemon.childNodes[0].textContent;
-        
-        for(const pokemon of pokemons){
-            if(pokemon.pokemonName===pokemonName){
-                displaySelectedPokemon(pokemon)
-            }
+    
+    for(const pokemon of pokemons){
+        if(pokemon.pokemonName===pokemonName){
+            displaySelectedPokemon(pokemon)
         }
     }
 }
@@ -166,13 +142,12 @@ export function handleSearch(event){
 }
 
 export function handleShowFavourites(){
+    
     const favouriteButton=document.querySelector('.favouriteButton');
     const searchBar=document.querySelector('.searchBar')
-    searchBar.value='';
+    searchBar.value="";
     currentPage=1;
-    while(aside.firstChild){
-        aside.removeChild(aside.firstChild);
-    }
+    aside.innerHTML="";
     if(favouritesShowed==false){
         displayPokemonCards(favouritesPokemons);
         favouriteButton.textContent="All";
@@ -192,7 +167,6 @@ export function removeFavouriteFromUi(pokemon){
             allPokemons.removeChild(node);
         }
     })
-    while(aside.firstChild){
-        aside.removeChild(aside.firstChild);
-    }
+
+    aside.innerHTML="";
 }
