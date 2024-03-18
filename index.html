@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-    <script defer type="module" src="script.js"></script>
-   
+    <script type="module" src="script.js"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    
+    <title>PokeSea</title>
     <style>
         
         body{
@@ -29,6 +29,10 @@
             row-gap: 15px;
             border-radius: 0.4rem;
             box-shadow: 0px 0px 60px -37px rgba(108, 108, 108, 1);
+        }
+        section h5{
+            display: flex;
+            justify-content: center;
         }
         .searchSection{
             display: flex;
@@ -118,6 +122,7 @@
             width: 100%;
             align-items: center;
             border:solid grey;
+            border-radius: 1rem;
             background-color: rgb(214, 214, 214);
             height: fit-content;
         }
@@ -199,13 +204,16 @@
             justify-content: center;
             column-gap: 20px;
         }
-        @media screen and (max-width:800px){
+        @media (max-width:800px){
             body{
                 display: flex;
                 align-items: center;
                 flex-direction: column;
                 width: 100%;
                 row-gap: 40px;
+            }
+            .searchBar{
+                width: 60%;
             }
             section{
                 width: 60%;
@@ -214,20 +222,24 @@
             aside{
                 width: 60%;
             }
+            .selectedPokemonHeader{
+                font-size: larger;
+            }
         }
     </style>
 </head>
 <body>
         <section>
-            <div class="favourites"></img><button class="favouriteButton">Favourites</button></div>
-            <div class="searchSection">Search Pokemon<input class="searchBar"/></div>
+            <h5>find your favourite pokemon</h5>
+            <div class="favourites"><button class="favouriteButton">Favourites</button></div>
+            <div class="searchSection">Search Pokemon<input class="searchBar"></div>
             <div class="pokemons"></div>
             <div class="pagination">
                 <button class="previous">
-                    <img src="images/prev.svg"></img>
+                    <img src="images/prev.svg" alt="failed to load">
                 </button>
                 <button class="next">
-                    <img src="images/next.svg"></img>
+                    <img src="images/next.svg" alt="failed to load">
                 </button>
             </div>
         </section>
