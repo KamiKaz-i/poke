@@ -1,4 +1,4 @@
-import {getPokemonsData,pokemonCount} from "./pokemonData.js";
+import {getPokemonsData} from "./pokemonData.js";
 import {createPokemonCard,createSeletedCard} from "./createPokemonCard.js";
 import {addToFavourites,favouritesPokemons} from "./favouritePokemon.js";
 
@@ -8,44 +8,67 @@ export let favouritesShowed=false;
 const next=document.querySelector('.next');
 const previous=document.querySelector('.previous');
 const allPokemons=document.querySelector('.pokemons');
-const aside=document.querySelector('aside')
-
+const aside=document.querySelector('aside');
 let currentPage=1;
-const pokemonsPerPage=12;
+const pokemonsPerPage=9;
+const searchedPokemons=[];
+let isSearching=false;
 
+function checkIfItsLastPage(listOfPokemons){
+
+    if(currentPage<Math.ceil(listOfPokemons.length/pokemonsPerPage)){
+        currentPage+=1;
+        displayPokemonCards(listOfPokemons);
+    }
+}
+
+function checkIfItsFirstPage(listOfPokemons){
+
+    if(currentPage>1){
+        currentPage-=1;
+        displayPokemonCards(listOfPokemons);
+    }
+}
 
 next.addEventListener("click",()=>{
     
     if(favouritesShowed){
-        if(currentPage<Math.ceil(favouritesPokemons.length/pokemonsPerPage)){
-            currentPage+=1;
+        if(isSearching){
+            checkIfItsLastPage(searchedPokemons);
         }
-        displayPokemonCards(favouritesPokemons);
+        else{
+            checkIfItsLastPage(favouritesPokemons);
+        }
     }
     else{
-        if(currentPage<Math.ceil(pokemonCount/pokemonsPerPage)){
-            currentPage+=1;
+        if(isSearching){
+            checkIfItsLastPage(searchedPokemons);
         }
-        displayPokemonCards(pokemons);
+        else{
+            checkIfItsLastPage(pokemons);
+        }
     }
-    
-})
-previous.addEventListener("click",()=>{
-    
-    if(currentPage>1){
-        currentPage-=1;
-    }
-    if(favouritesShowed){
-        
-        displayPokemonCards(favouritesPokemons);
-    }
-    else{
-        
-        displayPokemonCards(pokemons);
-    }
-    
 })
 
+previous.addEventListener("click",()=>{
+    
+    if(favouritesShowed){
+        if(isSearching){
+            checkIfItsFirstPage(searchedPokemons);
+        }
+        else{
+            checkIfItsFirstPage(favouritesPokemons);
+        }
+    }
+    else{
+        if(isSearching){
+            checkIfItsFirstPage(searchedPokemons);
+        }
+        else{
+            checkIfItsFirstPage(pokemons);
+        }
+    }
+})
 
 export function displayPokemonCards(listOfPokemons){
     
@@ -64,15 +87,13 @@ export function displayPokemonCards(listOfPokemons){
 }
 function pokemonNameStartsWith(listOfPokemons,event){
 
-    while(allPokemons.firstChild){
-        allPokemons.removeChild(allPokemons.firstChild);
-    }
     listOfPokemons.forEach((pokemon)=>{
         if(pokemon.pokemonName.startsWith(event.target.value)){
-            const pokemonCard=createPokemonCard(pokemon);
-            allPokemons.appendChild(pokemonCard);
+            searchedPokemons.push(pokemon)
         }
     })
+    displayPokemonCards(searchedPokemons);
+   
 }
 
 function displaySelectedPokemon(pokemon){
@@ -97,10 +118,12 @@ function displaySelectedPokemon(pokemon){
 }   
 
 export function handlePokemonClick(event){
+    const clickedPokemon=event.target.closest('.pokemonCard');
+
     if(window.innerWidth<800){
         aside.scrollIntoView({block: "start", inline: "nearest",behavior:"smooth"});
     }
-    const clickedPokemon=event.target.closest('.pokemonCard');
+
     if(clickedPokemon){
         const pokemonName=clickedPokemon.childNodes[0].textContent;
         
@@ -113,25 +136,30 @@ export function handlePokemonClick(event){
 }
 
 export function handleSearch(event){
-    
+
+    searchedPokemons.splice(0,searchedPokemons.length)
+    currentPage=1;
     if(favouritesShowed==false){
         if(event.target.value!==""){
+            isSearching=true;
             pokemonNameStartsWith(pokemons,event);
         }
         else{
             displayPokemonCards(pokemons);
+            isSearching=false;
         }
     }
     else{
         if(event.target.value!==""){
+            isSearching=true;
             pokemonNameStartsWith(favouritesPokemons,event);
         }
         
         else{
+            isSearching=false;
             displayPokemonCards(favouritesPokemons);
         }
     }
-    
 }
 
 export function handleShowFavourites(){
@@ -152,7 +180,6 @@ export function handleShowFavourites(){
         favouriteButton.textContent="Favourites";
         favouritesShowed=false;
     }
-    
 }
 
 export function removeFavouriteFromUi(pokemon){
@@ -166,5 +193,3 @@ export function removeFavouriteFromUi(pokemon){
         aside.removeChild(aside.firstChild);
     }
 }
-
-
