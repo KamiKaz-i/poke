@@ -81,7 +81,7 @@ export function createSeletedCard(pokemon){
     selectedPokemonAtributes.appendChild(selectedPokemonTypes)
     selectedPokemonFavouriteButton.appendChild(selectedPokemonFavouriteIcon);
       
-    selectedPokemonHeader.textContent=pokemon.pokemonName+" -->";
+    selectedPokemonHeader.textContent=pokemon.pokemonName+" ->";
     selectedPokemonHeader.appendChild(selectedPokemonFavouriteButton);  
 
     selectedPokemon.appendChild(selectedPokemonHeader);

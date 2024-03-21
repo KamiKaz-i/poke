@@ -10,7 +10,7 @@ const previous=document.querySelector('.previous');
 const allPokemons=document.querySelector('.pokemons');
 const aside=document.querySelector('aside');
 let currentPage=1;
-const pokemonsPerPage=9;
+const pokemonsPerPage=6;
 const searchedPokemons=[];
 let isSearching=false;
 
@@ -69,7 +69,7 @@ export function displayPokemonCards(listOfPokemons){
 function pokemonNameStartsWith(listOfPokemons,event){
 
     listOfPokemons.forEach((pokemon)=>{
-        if(pokemon.pokemonName.startsWith(event.target.value)){
+        if(pokemon.pokemonName.startsWith(event.target.value.toLowerCase())){
             searchedPokemons.push(pokemon)
         }
     })
@@ -99,21 +99,24 @@ function displaySelectedPokemon(pokemon){
 export function handlePokemonClick(event){
 
     const clickedPokemon=event.target.closest('.pokemonCard');
-    const pokemonName=clickedPokemon.childNodes[0].textContent;
-
-    if(window.innerWidth<800){
-        aside.scrollIntoView({block: "start", inline: "nearest",behavior:"smooth"});
-    }
+    if(clickedPokemon){
+        const pokemonName=clickedPokemon.childNodes[0].textContent;
     
-    for(const pokemon of pokemons){
-        if(pokemon.pokemonName===pokemonName){
-            displaySelectedPokemon(pokemon)
+        if(window.innerWidth<800){
+            aside.scrollIntoView({block: "start", inline: "nearest",behavior:"smooth"});
+        }
+        
+        for(const pokemon of pokemons){
+            if(pokemon.pokemonName===pokemonName){
+                displaySelectedPokemon(pokemon)
+            }
         }
     }
+    
 }
 
 export function handleSearch(event){
-
+    
     searchedPokemons.splice(0,searchedPokemons.length)
     currentPage=1;
     if(favouritesShowed==false){
@@ -148,7 +151,7 @@ export function handleShowFavourites(){
     currentPage=1;
     searchBar.value="";
     aside.innerHTML="";
-    
+
     if(favouritesShowed==false){
         displayPokemonCards(favouritesPokemons);
         favouriteButton.textContent="All";

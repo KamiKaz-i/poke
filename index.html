@@ -123,7 +123,7 @@
             align-items: center;
             border:solid grey;
             border-radius: 1rem;
-            background-color: rgb(214, 214, 214);
+            background-color: rgb(192, 191, 191);
             height: fit-content;
         }
         .selectedPokemon > div{
@@ -150,7 +150,7 @@
         .selctedPokemonImage{
             padding:20px;
             max-height: 260px;
-            width: 80%;
+            width: 60%;
         }
         .selectedPokemonWeight{
             justify-content: center;
@@ -222,8 +222,33 @@
             aside{
                 width: 60%;
             }
+            
+            .pokemonCard{
+                min-width: 30px;
+            }
+            .pokemonCard >div{
+                font-size: x-small;
+                overflow: hidden;
+            }
+            .pokemonCard > img {
+               max-width: 50px;
+               max-height: 50px;
+            }
             .selectedPokemonHeader{
-                font-size: larger;
+                font-size: medium;
+            }
+            .selctedPokemonImage{
+                width: 30%;
+            }
+            .selectedPokemonAtributes{
+                font-size: small;
+            }
+            .selectedPokemonFavouriteIcon{
+                width: 25px;
+                height: 25px;
+            }
+            .selectedPokemonStats > p{
+                margin: 0;
             }
         }
     </style>
