@@ -9,7 +9,7 @@ export function createPokemonCard(pokemon){
     pokemonCardImage.setAttribute("key",pokemon.pokemonId);
     pokemonCardImage.setAttribute("src",pokemon.pokemonImageSvgUrl);
     pokemonCardImage.setAttribute("alt",`pokemon at ${pokemon.pokemonId}`);
-
+    
     pokemonCardHeader.textContent=pokemon.pokemonName;
     
     pokemonCard.appendChild(pokemonCardHeader);

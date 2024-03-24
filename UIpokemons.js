@@ -63,7 +63,7 @@ export function displayPokemonCards(listOfPokemons){
         allPokemons.appendChild(pokemonCard);
     })
     if(pokemonsToDisplay.length===0){
-        allPokemons.textContent="Not Found In The Wild";
+        allPokemons.textContent="No pokemon were found";
     }
 }
 function pokemonNameStartsWith(listOfPokemons,event){
