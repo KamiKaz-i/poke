@@ -1,26 +1,27 @@
-import { favouritesShowed,removeFavouriteFromUi } from "./UIpokemons.js";
-export let favouritesPokemons=[];
+import { favouritesShowed, displayPokemonCards, aside } from "./UIpokemons.js";
 
-export function isInFavourites(pokemon){
-    return favouritesPokemons.some((poke)=>JSON.stringify(poke)===JSON.stringify(pokemon))
+export let favouritesPokemons = [];
+
+export function addToFavourites(selectedPokemon){
+  if(!isInFavourites(selectedPokemon)){
+    favouritesPokemons.push(selectedPokemon);
+  }
+  else{
+    removeFromFavourites(selectedPokemon);
+  }
 }
 
-export function addToFavourites(pokemon){
-    if(!isInFavourites(pokemon)){
-        favouritesPokemons.push(pokemon);
-    }
-    else{
-        RemoveFromFavourites(pokemon);
-    }
+function isInFavourites(pokemon){
+  return favouritesPokemons.some((poke) => JSON.stringify(poke) === JSON.stringify(pokemon))
 }
 
-export function RemoveFromFavourites(pokemon){
-    
-    if(isInFavourites(pokemon)){
-        favouritesPokemons=favouritesPokemons.filter((poke)=>poke.pokemonName!==pokemon.pokemonName);
-        if(favouritesShowed){
-           
-            removeFavouriteFromUi(pokemon);
-        }
+function removeFromFavourites(pokemon){
+  if(isInFavourites(pokemon)){
+    favouritesPokemons=favouritesPokemons.filter((poke) => poke.pokemonName !== pokemon.pokemonName);
+
+    if(favouritesShowed){
+      displayPokemonCards(favouritesPokemons)
     }
+    aside.innerHTML = "";
+  }
 }
