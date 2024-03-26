@@ -1,14 +1,14 @@
-import { favouritesPokemons } from "./favouritePokemon.js";
+import { favouritesPokemons } from './favouritePokemon.js';
 export function createPokemonCard(pokemon){
   const pokemonCard = document.createElement('div');
   const pokemonCardHeader = document.createElement('div');
   const pokemonCardImage = document.createElement('img');
     
-  pokemonCard.className="pokemonCard";
+  pokemonCard.className='pokemonCard';
 
-  pokemonCardImage.setAttribute("key", pokemon.pokemonId);
-  pokemonCardImage.setAttribute("src", pokemon.pokemonImageSvgUrl);
-  pokemonCardImage.setAttribute("alt", `pokemon at ${pokemon.pokemonId}`);
+  pokemonCardImage.setAttribute('key', pokemon.pokemonId);
+  pokemonCardImage.setAttribute('src', pokemon.pokemonImageSvgUrl);
+  pokemonCardImage.setAttribute('alt', `pokemon at ${pokemon.pokemonId}`);
     
   pokemonCardHeader.textContent = pokemon.pokemonName;
     
@@ -63,13 +63,13 @@ export function createSeletedCard(pokemon){
   selectedPokemonWeight.textContent = `Weight: ${pokemon.pokemonWeight}`;
   selectedPokemonTypes.replaceChildren(typeFragment);
   selectedPokemonStats.replaceChildren(statFramgent);
-  selctedPokemonImage.setAttribute("src", pokemon.pokemonImageSvgUrl);
+  selctedPokemonImage.setAttribute('src', pokemon.pokemonImageSvgUrl);
 
   if(favouritesPokemons.some((poke) => poke.pokemonName == pokemon.pokemonName)){
-    selectedPokemonFavouriteIcon.setAttribute("src", 'images/star.svg');
+    selectedPokemonFavouriteIcon.setAttribute('src', 'images/star.svg');
   }
   else{
-    selectedPokemonFavouriteIcon.setAttribute("src", 'images/estar.svg');
+    selectedPokemonFavouriteIcon.setAttribute('src', 'images/estar.svg');
   }
     
 
