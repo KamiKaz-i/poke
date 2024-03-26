@@ -4,6 +4,8 @@ import {addToFavourites, favouritesPokemons} from "./favouritePokemon.js";
 
 export const pokemons = await getPokemonsData();
 export const aside = document.querySelector('aside');
+const favouriteButton = document.querySelector('.favouriteButton');
+const searchBar = document.querySelector('.searchBar');
 const next = document.querySelector('.next');
 const previous = document.querySelector('.previous');
 const allPokemons = document.querySelector('.pokemons');
@@ -76,10 +78,11 @@ function displaySelectedPokemon(pokemon){
   aside.innerHTML = "";
   const selectedCard = createSeletedCard(pokemon);
   aside.appendChild(selectedCard);
-  const favouriteButton = document.querySelector('.selectedPokemonFavouriteButton');
+
+  const selectedFavouriteButton = document.querySelector('.selectedPokemonFavouriteButton');
   const favouriteIcon = document.querySelector('.selectedPokemonFavouriteIcon');
-    
-  favouriteButton.addEventListener("click",() => {
+  
+  selectedFavouriteButton.addEventListener("click",() => {
     if(favouritesPokemons.some((poke) => poke.pokemonName==pokemon.pokemonName)){
       favouriteIcon.setAttribute("src", "images/estar.svg")
     }
@@ -134,8 +137,7 @@ export function handleSearch(event){
 }
 
 export function handleShowFavourites(){
-  const favouriteButton = document.querySelector('.favouriteButton');
-  const searchBar = document.querySelector('.searchBar')
+  
   isSearching = false;
   currentPage = 1;
   searchBar.value = "";

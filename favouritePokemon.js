@@ -21,7 +21,8 @@ function removeFromFavourites(pokemon){
 
     if(favouritesShowed){
       displayPokemonCards(favouritesPokemons)
+      aside.innerHTML = "";
     }
-    aside.innerHTML = "";
+    
   }
 }
