@@ -4,7 +4,11 @@ body{
     display: flex;
     justify-content: space-evenly;
     row-gap: 15px;
+    background-image: url('/images/background.png');
+    background-size: cover;
+    background-attachment: fixed;
 }
+
 section{
     height: max-content;
     width: 31%;
@@ -12,11 +16,9 @@ section{
     flex-direction: column;
     flex-wrap: wrap;
     padding:40px;
-    background-color: rgb(232, 232, 232);
-    column-gap: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
     row-gap: 15px;
     border-radius: 0.4rem;
-    box-shadow: 0px 0px 60px -37px rgba(108, 108, 108, 1);
 }
 section h5{
     display: flex;
@@ -30,7 +32,7 @@ section h5{
 .searchBar{
     width: 40%;
     padding: 6px 10px;
-    margin: 8px 0;
+    margin: 8px ;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -50,8 +52,6 @@ section h5{
     column-gap: 40px;
     row-gap: 15px;
     justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
 }
 .pokemonCard:hover{
     border: solid rgb(87, 87, 87);
@@ -71,16 +71,21 @@ section h5{
 }
 aside{
     display: flex;
+    position: relative;
     width: 31%;
     justify-content: center;
-    padding: 0px 40px 0 40px;
-    background-color: rgb(232, 232, 232);
-    column-gap: 40px;
-    row-gap: 15px;
-    border-radius: 0.4rem;
-    box-shadow: 0px 0px 60px -37px rgba(108, 108, 108, 1);
     height: fit-content;
-    
+    padding-left: 40px;
+    padding-right: 40px;
+}
+aside::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5); 
+    position:absolute;
+    filter: blur(2px);
+    border-radius: 0.5rem;
 }
 
 .pokemonCard{
@@ -91,6 +96,7 @@ aside{
     border:solid grey;
     border-radius: 0.4rem;
     min-width: 150px;
+    max-width: 150px;
     box-shadow: 8px 8px 17px -10px rgba(66, 68, 90, 1);
     cursor: pointer;
     transition-duration: 0.4s;
@@ -104,18 +110,20 @@ aside{
     color:black;
     width:100%;
     padding: 5px 0px 5px 0px;
-   
+    overflow: hidden;
 }
 .selectedPokemon{
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 20px 0px 20px 00px;
     align-items: center;
     border-radius: 0.5rem;
     position: relative;
     z-index: 0;
     overflow: hidden;
+    border: solid rgb(62, 62, 62) 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .selectedPokemon::before{
     content: "";
@@ -123,19 +131,7 @@ aside{
     width: 300%;
     top:-50%;
     position:absolute;
-    background: conic-gradient(
-        rgba(255, 0, 0, 1) 0%,
-        rgba(255, 154, 0, 1) 10%,
-        rgba(208, 222, 33, 1) 20%,
-        rgba(79, 220, 74, 1) 30%,
-        rgba(63, 218, 216, 1) 40%,
-        rgba(47, 201, 226, 1) 50%,
-        rgba(28, 127, 238, 1) 60%,
-        rgba(95, 21, 242, 1) 70%,
-        rgba(186, 12, 248, 1) 80%,
-        rgba(251, 7, 217, 1) 90%,
-        rgba(255, 0, 0, 1) 100%
-    );
+    background: conic-gradient( rgba(255, 0, 0, 0.6) 0%, rgba(255, 154, 0, 0.6) 10%, rgba(208, 222, 33, 0.6) 20%, rgba(79, 220, 74, 0.6) 30%, rgba(63, 218, 216, 0.6) 40%, rgba(47, 201, 226, 0.6) 50%, rgba(28, 127, 238, 0.6) 60%, rgba(95, 21, 242, 0.6) 70%, rgba(186, 12, 248, 0.6) 80%, rgba(251, 7, 217, 0.6) 90%, rgba(255, 0, 0, 0.6) 100% );
     z-index: 1;
     animation: rainbow 3s infinite linear;
 }
@@ -149,18 +145,17 @@ aside{
 }
 .selectedPokemon::after{
     content: "";
-    top: 1%;
-    height: 98%;
+    top: 2.5%;
+    height:95%;
     width: 100%;
     z-index: 1;
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.96);
-    
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    background-color: rgba(255, 255, 255, 0.86);
 }
 .selectedPokemon > div{
-    padding-top: 10px;
-    display: flex;
-    justify-content: center;
+    padding-top: 20px;
     z-index: 2;
 }
 .selectedPokemonStats > p{
@@ -169,7 +164,7 @@ aside{
 .selectedPokemonAtributes{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    
     
 }
 .selectedPokemonAtributes > div{
@@ -271,11 +266,9 @@ aside{
     
     aside{
         width: 60%;
-        padding: 0px 40px 0 40px;
+        
     }
-    .selectedPokemon{
-        margin: 40px 0 40px 0;
-    }
+    
     
     .pokemonCard{
         min-width: 30px;

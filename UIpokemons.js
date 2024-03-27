@@ -11,13 +11,10 @@ const previous = document.querySelector('.previous');
 const allPokemons = document.querySelector('.pokemons');
 const pokemonsPerPage = 6;
 const searchedPokemons = [];
-
+         
 export let favouritesShowed = false;
 let currentPage = 1;
 let isSearching = false;
-
-
-
 
 function checkIfItsLastPage(listOfPokemons){
   if(currentPage < Math.ceil(listOfPokemons.length / pokemonsPerPage)){
@@ -91,6 +88,7 @@ function displaySelectedPokemon(pokemon){
     }
     addToFavourites(pokemon)
   });
+  
 }   
 
 export function handlePokemonClick(event){
