@@ -9,7 +9,7 @@ const searchBar = document.querySelector('.searchBar');
 const next = document.querySelector('.next');
 const previous = document.querySelector('.previous');
 const allPokemons = document.querySelector('.pokemons');
-const pokemonsPerPage = 6;
+const pokemonsPerPage = 9;
 const searchedPokemons = [];
 
 export let favouritesShowed = false;
@@ -20,8 +20,8 @@ let isSearching = false;
 
 
 function checkIfItsLastPage(listOfPokemons){
-  if(currentPage<Math.ceil(listOfPokemons.length / pokemonsPerPage)){
-      currentPage+=1;
+  if(currentPage < Math.ceil(listOfPokemons.length / pokemonsPerPage)){
+      currentPage += 1;
       displayPokemonCards(listOfPokemons);
   }
 }
