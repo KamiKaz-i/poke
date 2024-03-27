@@ -7,14 +7,16 @@ body{
     background-image: url('images/background.png');
     background-size: cover;
     background-attachment: fixed;
+    margin: 0;
 }
 
 section{
-    height: max-content;
+    height: calc(100vh - 80px);
+    overflow: auto;
+    min-height: min-content;
     width: 31%;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     padding:40px;
     background-color: rgba(255, 255, 255, 0.8);
     row-gap: 15px;
@@ -75,12 +77,13 @@ aside{
     height: fit-content;
     padding-left: 40px;
     padding-right: 40px;
+    margin-top: 20px;
 }
 aside::before{
     content: "";
     height: 100%;
     width: 100%;
-    background-color:darkgrey;
+    background-color: darkgrey;
     opacity: 0.5;
     position:absolute;
     filter: blur(2px);
@@ -257,6 +260,7 @@ aside::before{
         flex-direction: column;
         width: 100%;
         row-gap: 40px;
+        
     }
     .searchBar{
         width: 60%;
@@ -264,11 +268,12 @@ aside::before{
     section{
         width: 50%;
         column-gap: 0px;
+        height: max-content;
     }
     
     aside{
         width: 50%;
-        
+        margin-top: 0px;
     }
     
     
