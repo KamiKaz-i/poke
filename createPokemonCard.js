@@ -66,10 +66,10 @@ export function createSeletedCard(pokemon){
   selctedPokemonImage.setAttribute('src', pokemon.pokemonImageSvgUrl);
 
   if(favouritesPokemons.some((poke) => poke.pokemonName == pokemon.pokemonName)){
-    selectedPokemonFavouriteIcon.setAttribute('src', 'images/star.svg');
+    selectedPokemonFavouriteIcon.setAttribute('src', 'images/full_heart.svg');
   }
   else{
-    selectedPokemonFavouriteIcon.setAttribute('src', 'images/estar.svg');
+    selectedPokemonFavouriteIcon.setAttribute('src', 'images/empty_heart.svg');
   }
     
 

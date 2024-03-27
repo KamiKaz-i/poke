@@ -81,10 +81,10 @@ function displaySelectedPokemon(pokemon){
   
   selectedFavouriteButton.addEventListener("click", () => {
     if(favouritesPokemons.some((poke) => poke.pokemonName==pokemon.pokemonName)){
-      favouriteIcon.setAttribute('src', 'images/estar.svg')
+      favouriteIcon.setAttribute('src', 'images/empty_heart.svg')
     }
     else{
-      favouriteIcon.setAttribute('src', 'images/star.svg')
+      favouriteIcon.setAttribute('src', 'images/full_heart.svg')
     }
     addToFavourites(pokemon)
   });

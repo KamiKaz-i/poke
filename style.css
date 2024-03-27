@@ -6,7 +6,7 @@ body{
     row-gap: 15px;
     background-image: url('images/background.png');
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment:fixed;
     margin: 0;
 }
 
@@ -202,8 +202,8 @@ aside::before{
     
 }
 .selectedPokemonFavouriteIcon{
-    width:35px;
-    height: 35px;
+    width:33px;
+    height: 33px;
 }
 .selectedPokemonFavouriteButton{
     border: none;
@@ -239,10 +239,7 @@ aside::before{
     justify-content: center;
     column-gap: 20px;
 }
-.selectedPokemonFavouriteIcon{
-        width: 27px;
-        height: 27px;
-    }
+
 @media (max-width:500px){
     .pokemonCard > img {
         display: none;

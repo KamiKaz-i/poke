@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 0 24 24"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="full_heart.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient4"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ff8080;stop-opacity:1;"
+         offset="0"
+         id="stop4" />
+      <stop
+         style="stop-color:#ff8080;stop-opacity:1;"
+         offset="1"
+         id="stop5" />
+    </linearGradient>
+    <linearGradient
+       id="swatch2"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4"
+       id="linearGradient5"
+       x1="2.0128631"
+       y1="12.175004"
+       x2="21.986489"
+       y2="12.175004"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-0.26309379,2.8063337)" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.02625"
+     inkscape:cx="400"
+     inkscape:cy="477.4665"
+     inkscape:window-width="1435"
+     inkscape:window-height="1040"
+     inkscape:window-x="378"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg1" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="m 11.736906,8.9526869 c -1.7993998,-2.09702 -4.8062298,-2.74509 -7.0607698,-0.82485 -2.25455,1.9202401 -2.57196,5.1307601 -0.80145,7.4018601 1.47206,1.8882 5.92702,5.8707 7.3871198,7.1597 0.1633,0.1442 0.245,0.2163 0.3403,0.2446 0.0831,0.0247 0.1741,0.0247 0.2573,0 0.0953,-0.0283 0.1769,-0.1004 0.3403,-0.2446 1.4601,-1.289 5.915,-5.2715 7.3871,-7.1597 1.7705,-2.2711 1.4918,-5.50182 -0.8015,-7.4018601 -2.2933,-1.90004 -5.249,-1.27217 -7.0484,0.82485 z"
+     stroke="#000000"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round"
+     id="path1"
+     style="fill:url(#linearGradient5);fill-opacity:1;stroke:#ff2121;stroke-opacity:1" />
+</svg>
