@@ -9,7 +9,7 @@ const searchBar = document.querySelector('.searchBar');
 const next = document.querySelector('.next');
 const previous = document.querySelector('.previous');
 const allPokemons = document.querySelector('.pokemons');
-const pokemonsPerPage = 9;
+const pokemonsPerPage = 6;
 const searchedPokemons = [];
 
 export let favouritesShowed = false;
