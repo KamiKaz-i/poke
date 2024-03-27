@@ -4,7 +4,7 @@ body{
     display: flex;
     justify-content: space-evenly;
     row-gap: 15px;
-    background-image: url('/images/background.png');
+    background-image: url('images/background.png');
     background-size: cover;
     background-attachment: fixed;
 }
@@ -152,7 +152,7 @@ aside::before{
     position: absolute;
     border-top: solid 1px;
     border-bottom: solid 1px;
-    background-color: rgba(255, 255, 255, 0.86);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 .selectedPokemon > div{
     padding-top: 20px;
@@ -248,7 +248,7 @@ aside::before{
         width: 27px;
         height: 27px;
     }
-@media (max-width:780px){
+@media (max-width:1150px){
     body{
         display: flex;
         align-items: center;
@@ -260,12 +260,12 @@ aside::before{
         width: 60%;
     }
     section{
-        width: 60%;
+        width: 50%;
         column-gap: 0px;
     }
     
     aside{
-        width: 60%;
+        width: 50%;
         
     }
     
@@ -285,7 +285,8 @@ aside::before{
         font-size: medium;
     }
     .selctedPokemonImage{
-        width: 30%;
+        width: 45%;
+        padding: 5px;
     }
     .selectedPokemonAtributes{
         font-size: small;
