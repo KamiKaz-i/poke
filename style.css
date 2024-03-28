@@ -248,8 +248,12 @@ aside::before{
 .previous{
     width:30px;
     height: 30px;
+    padding: 0;
+    margin: 0;
 }
 .next{
+    margin: 0;
+    padding: 0;
     width:30px;
     height:30px;
 }
@@ -272,6 +276,7 @@ aside::before{
     display: flex;
     justify-content: center;
     column-gap: 20px;
+    
 }
 
 @media (max-width:500px){
@@ -292,6 +297,10 @@ aside::before{
         width: 100%;
         row-gap: 40px;
         
+    }
+    .pagination>button{
+        width: 25px;
+        height: 25px;
     }
     .searchBar{
         width: 60%;
