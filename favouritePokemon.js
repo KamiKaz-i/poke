@@ -20,6 +20,7 @@ function removeFromFavourites(pokemon){
     favouritesPokemons=favouritesPokemons.filter((poke) => poke.pokemonName !== pokemon.pokemonName);
 
     if(favouritesShowed){
+      
       displayPokemonCards(favouritesPokemons)
       aside.innerHTML = '';
     }

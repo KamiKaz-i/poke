@@ -30,6 +30,7 @@ export function createSeletedCard(pokemon){
   const selectedPokemonHeight = document.createElement('div');
   const selectedPokemonTypes = document.createElement('div');
   const selectedPokemonStats = document.createElement('div');
+  const selectedpokemonHeadertext=document.createElement('p');
 
   selectedPokemonFavouriteButton.classList.add('selectedPokemonFavouriteButton');
   selectedPokemonFavouriteIcon.classList.add('selectedPokemonFavouriteIcon');
@@ -80,8 +81,8 @@ export function createSeletedCard(pokemon){
   selectedPokemonAtributes.appendChild(selectedPokemonStats)
   selectedPokemonAtributes.appendChild(selectedPokemonTypes)
   selectedPokemonFavouriteButton.appendChild(selectedPokemonFavouriteIcon);
-      
-  selectedPokemonHeader.textContent = `${pokemon.pokemonName} ->`;
+  selectedpokemonHeadertext.textContent=`${pokemon.pokemonName}`;
+  selectedPokemonHeader.appendChild(selectedpokemonHeadertext);
   selectedPokemonHeader.appendChild(selectedPokemonFavouriteButton);  
 
   selectedPokemon.appendChild(selectedPokemonHeader);

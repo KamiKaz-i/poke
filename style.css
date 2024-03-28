@@ -18,7 +18,7 @@ section{
     display: flex;
     flex-direction: column;
     padding:40px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.7);
     row-gap: 15px;
     border-radius: 0.4rem;
 }
@@ -78,16 +78,17 @@ aside{
     padding-left: 40px;
     padding-right: 40px;
     margin-top: 20px;
+    
 }
 aside::before{
     content: "";
     height: 100%;
     width: 100%;
-    background-color: darkgrey;
+    background-color: rgb(25, 25, 25);
     opacity: 0.5;
     position:absolute;
-    filter: blur(2px);
-    border-radius: 0.5rem;
+    filter: blur(1.3rem);
+    border-radius: 1rem;
 }
 
 .pokemonCard{
@@ -126,6 +127,8 @@ aside::before{
     border: solid rgb(62, 62, 62) 1px;
     margin-top: 20px;
     margin-bottom: 20px;
+    
+    
 }
 .selectedPokemon::before{
     content: "";
@@ -133,12 +136,24 @@ aside::before{
     width: 300%;
     top:-50%;
     position:absolute;
-    background: conic-gradient( rgba(255, 0, 0, 0.6) 0%, rgba(255, 154, 0, 0.6) 10%, rgba(208, 222, 33, 0.6) 20%, rgba(79, 220, 74, 0.6) 30%, rgba(63, 218, 216, 0.6) 40%, rgba(47, 201, 226, 0.6) 50%, rgba(28, 127, 238, 0.6) 60%, rgba(95, 21, 242, 0.6) 70%, rgba(186, 12, 248, 0.6) 80%, rgba(251, 7, 217, 0.6) 90%, rgba(255, 0, 0, 0.6) 100% );
+    background: conic-gradient(
+    rgba(255, 0, 0, 0.6) 0%,
+    rgba(255, 154, 0, 0.6) 10%,
+    rgba(208, 222, 33, 0.6) 20%,
+    rgba(79, 220, 74, 0.6) 30%,
+    rgba(63, 218, 216, 0.6) 40%,
+    rgba(47, 201, 226, 0.6) 50%,
+    rgba(28, 127, 238, 0.6) 60%,
+    rgba(95, 21, 242, 0.6) 70%,
+    rgba(186, 12, 248, 0.6) 80%,
+    rgba(251, 7, 217, 0.6) 90%,
+    rgba(255, 0, 0, 0.6) 100% );
     z-index: 1;
     animation: rainbow 3s infinite linear;
+    
 }
 @keyframes rainbow {
-    from{
+    0%{
         transform: rotate(0deg);
     }
     to{
@@ -154,13 +169,17 @@ aside::before{
     position: absolute;
     border-top: solid 1px;
     border-bottom: solid 1px;
-    background-color: rgb(92, 92, 92);
+    background-color: rgb(92, 92, 92,1);
+    
 }
 .selectedPokemon > div{
     padding-top: 20px;
     z-index: 2;
-    color:whitesmoke
+    color:whitesmoke;
+    animation: fadein 0.8s;
+
 }
+
 .selectedPokemonStats > p{
     margin: 5px;
 }
@@ -180,12 +199,27 @@ aside::before{
     align-items: center;
     font-size: x-large;
     font-weight: 500;
+    
+}
+.selectedPokemonHeader > p{
+    margin: 0;
+    overflow: hidden;
+    
+}
+@keyframes fadein {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 .selctedPokemonImage{
     padding:20px;
     width: 40%;
     max-height: 200px;
     z-index: 2;
+    animation: fadein 0.8s;
 }
 .selectedPokemonWeight{
     justify-content: center;
