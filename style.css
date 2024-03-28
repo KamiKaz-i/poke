@@ -75,8 +75,8 @@ aside{
     width: 31%;
     justify-content: center;
     height: fit-content;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
     margin-top: 20px;
     
 }
@@ -260,7 +260,7 @@ aside::before{
     background-color: lightgray;
     font-size: large;
     padding: 8px;
-    border-radius: 1rem;
+    border-radius: 0.2rem;
     transition-duration: 0.3s;
 }
 .favouriteButton:hover{
