@@ -56,12 +56,11 @@ section h5{
     justify-content: center;
 }
 .pokemonCard:hover{
-    border: solid rgb(87, 87, 87);
-    background-color: lightgrey;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 .pokemonCard:hover>div{
-    color:white;
-    background-color: grey;
+    background-color:rgb(181, 216, 144);
+    color:rgb(31, 31, 31);
 }
 .pokemonCard>img{
     padding:15px;
@@ -94,10 +93,10 @@ aside::before{
 .pokemonCard{
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid 1px rgb(83, 83, 83);
     align-items: center;
-    border:solid grey;
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
     min-width: 150px;
     max-width: 150px;
     box-shadow: 8px 8px 17px -10px rgba(66, 68, 90, 1);
@@ -109,8 +108,9 @@ aside::before{
 .pokemonCard > div{
     display: flex;
     justify-content: center;
-    background-color:darkgrey;
-    color:black;
+    background-color: rgb(123, 122, 122);
+    
+    color:rgb(234, 234, 234);
     width:100%;
     padding: 5px 0px 5px 0px;
     overflow: hidden;
