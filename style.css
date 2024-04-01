@@ -353,6 +353,7 @@ aside::before{
     
      aside{
         width: 100%;
+        min-width: 0;
      }
      .selectedPokemon{
         border-radius: 0px;
@@ -360,7 +361,7 @@ aside::before{
      section{
         border-radius: 0;
         width: 100%;
-        
+        min-width: 0;
      }
      
 }
