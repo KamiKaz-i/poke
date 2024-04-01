@@ -96,7 +96,7 @@ export function handlePokemonClick(event){
   if(clickedPokemon){
     const pokemonName = clickedPokemon.childNodes[0].textContent;
     
-    if(window.innerWidth < 1150){
+    if(window.innerWidth < 1300){
       aside.scrollIntoView({block: 'start', inline: 'nearest', behavior: 'smooth'});
     }
         
