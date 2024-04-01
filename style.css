@@ -11,7 +11,6 @@ body{
     background-image: url('images/background.png');
     background-size: cover;
     background-attachment:fixed;
-    margin: 0;
 }
 .header{
     display: flex;
@@ -238,6 +237,7 @@ aside::before{
 .selectedPokemonFavouriteIcon{
     width:33px;
     height: 33px;
+    margin-bottom: 5px;
 }
 .selectedPokemonFavouriteButton{
     border: none;
@@ -307,7 +307,6 @@ aside::before{
     section{
         width: 50%;
         min-width: 500px;
-       
         column-gap: 0px;
         height: max-content;
     }
@@ -335,6 +334,9 @@ aside::before{
     }
 }
 @media (max-width:650px){
+    body{
+        overflow: hidden;
+    }
     .favouriteButton{
         width: 250px;
     }
@@ -342,29 +344,23 @@ aside::before{
         width: 250px;
     }
      .pokemonCard{
-       width: 60%;
        max-width: 250px;
-       margin-left: 80px;
-       margin-right: 80px;
+       min-width: 250px
      }
      .pokemonCard>img{
         display: none;
      }
     
      aside{
-        padding-right: 0px;
-        padding-left:0px;
         width: 100%;
      }
      .selectedPokemon{
-        border-radius:0px;
-     }
-     aside::before{
         border-radius: 0px;
      }
      section{
         border-radius: 0;
         width: 100%;
+        
      }
      
 }
