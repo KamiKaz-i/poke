@@ -334,9 +334,7 @@ aside::before{
     }
 }
 @media (max-width:650px){
-    body{
-        overflow: hidden;
-    }
+    
     .favouriteButton{
         width: 250px;
     }
