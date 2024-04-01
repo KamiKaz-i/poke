@@ -325,10 +325,7 @@ aside::before{
         padding: 5px;
     }
    
-    .selectedPokemonFavouriteIcon{
-        width: 25px;
-        height: 25px;
-    }
+    
     .favouriteButton{
         font-size: medium;
     }
